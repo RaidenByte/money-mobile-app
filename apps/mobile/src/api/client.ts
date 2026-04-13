@@ -1,5 +1,4 @@
-﻿import { Platform } from 'react-native';
-import { Category, Transaction, TransactionType, User } from '../types';
+﻿import { Category, Transaction, TransactionType, User } from '../types';
 
 interface AuthResponse {
   token: string;
@@ -16,13 +15,9 @@ const resolveApiBaseUrl = () => {
   const envBaseUrl = process.env.EXPO_PUBLIC_API_URL?.trim();
   if (envBaseUrl) return envBaseUrl;
 
-  if (Platform.OS === 'android') {
-    // Fallback for physical Android devices on local Wi-Fi.
-    // Prefer EXPO_PUBLIC_API_URL for custom environments.
-    return 'http://192.168.0.106:3000';
-  }
-
-  return 'http://localhost:3000';
+  // Cloud-first default to avoid device/local network issues in release builds.
+  // Override with EXPO_PUBLIC_API_URL in .env when using local backend.
+  return 'https://money-mobile-api.onrender.com';
 };
 
 const API_BASE_URL = resolveApiBaseUrl();
@@ -128,3 +123,4 @@ export const apiClient = {
     });
   },
 };
+
