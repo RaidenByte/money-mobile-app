@@ -1,0 +1,14 @@
+*
+!app.json
+!App.tsx
+!index.ts
+!assets/**
+!src/**
+!scripts/**
+!package.json
+!package-lock.json
+!tsconfig.json
+!eas.json
+!.gitignore
+!.easignore
+!babel.config.js

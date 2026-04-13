@@ -1,0 +1,28 @@
+﻿apps/mobile-build-temp/
+apps/mobile/node_modules/
+apps/api/node_modules/
+apps/mobile/android/
+apps/mobile/web-dist/
+*.log
+*.out
+*.err
+
+# Local automation/agent workspace metadata
+.agents/
+
+# Local PostgreSQL runtime data (do not commit)
+apps/api/.pgsql/
+
+# Expo local/runtime artifacts
+apps/mobile/.expo/
+apps/mobile/tmp_apk_check/
+apps/mobile/Expo-Go-*.zip
+apps/mobile/*.log
+apps/mobile/*.out.log
+apps/mobile/*.err.log
+
+# API build/runtime artifacts
+apps/api/dist/
+apps/api/*.log
+apps/api/*.out.log
+apps/api/*.err.log

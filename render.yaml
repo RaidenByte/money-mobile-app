@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: money-mobile-api
+    runtime: node
+    rootDir: apps/api
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm run deploy:start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: money-mobile-postgres
+          property: connectionString
+      - key: CORS_ORIGIN
+        sync: false
+      - key: PUBLIC_BASE_URL
+        sync: false
+
+databases:
+  - name: money-mobile-postgres
+    plan: free
